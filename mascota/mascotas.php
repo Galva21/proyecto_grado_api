@@ -16,15 +16,18 @@ while ($row = mysqli_fetch_array($resultado_consulta)) {
 		'nombre' => $row['nombre'],
 		'tipo' => $row['tipo'],
 		'vacunado' => $row['vacunado'],
+		'desparacitado' => $row['desparacitado'],
 		'esterilizado' => $row['esterilizado'],
 		'raza' => $row['raza'],
 		'sexo' => $row['sexo'],
 		'color' => $row['color'],
+		'madurez' => $row['madurez'],
 		'descripcion' => $row['descripcion'],
 		'fecha_nacimiento' => $row['fecha_nacimiento'],
 		'foto' => $row['foto'],
 		'fecha_ingreso' => $row['fecha_ingreso'],
 		'fecha_salida' => $row['fecha_salida'],
+		'tiempo_adopcion' => $row['tiempo_adopcion'],
 	);
 	array_push($resultado, $item);
 }
