@@ -1,7 +1,10 @@
 <?php
 include '../conexion.php';
 
-$consulta = "SELECT * FROM mascota";
+$consulta = "SELECT *
+            FROM adopcion
+            INNER JOIN mascota ON adopcion.id_mascota = MASCOTA.id_mascota
+            WHERE MONTH(adopcion.fecha_adopcion) = MONTH(CURRENT_DATE());";
 $resultado_consulta = mysqli_query($conn, $consulta);
 
 if (!$resultado_consulta) {
@@ -12,7 +15,14 @@ $resultado = array();
 
 while ($row = mysqli_fetch_array($resultado_consulta)) {
 	$item = array(
-		'id_mascota' => $row['id_mascota'],
+		'id_adopcion' => $row['id_adopcion'],
+      'id_voluntario' => $row['id_voluntario'],
+      'id_mascota' => $row['id_mascota'],
+      'nombre_adopt' => $row['nombre_adopt'],
+      'ci_adopt' => $row['ci_adopt'],
+      'telefono_adopt' => $row['telefono_adopt'],
+      'direccion_adopt' => $row['direccion_adopt'],
+      'fecha_adopcion' => $row['fecha_adopcion'],
       'nombre' => $row['nombre'],
       'tipo' => $row['tipo'],
       'vacunado' => $row['vacunado'],
@@ -26,7 +36,7 @@ while ($row = mysqli_fetch_array($resultado_consulta)) {
       'foto' => $row['foto'],
       'fecha_ingreso' => $row['fecha_ingreso'],
       'fecha_salida' => $row['fecha_salida'],
-      'tiempo_adopcion' => $row['tiempo_adopcion'],
+      'tiempo_adopcion' => $row['tiempo_adopcion']
 	);
 	array_push($resultado, $item);
 }

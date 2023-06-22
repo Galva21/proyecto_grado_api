@@ -1,7 +1,7 @@
 <?php
 include '../conexion.php';
 
-$consulta = "SELECT * FROM mascota";
+$consulta = "SELECT * FROM MASCOTA WHERE id_mascota NOT IN (SELECT id_mascota FROM ADOPCION);";
 $resultado_consulta = mysqli_query($conn, $consulta);
 
 if (!$resultado_consulta) {

@@ -22,16 +22,15 @@ if ((isset($_GET['id']))) {
             'vacunado' => $row['vacunado'],
             'desparacitado' => $row['desparacitado'],
             'esterilizado' => $row['esterilizado'],
-            'raza' => $row['raza'],
             'sexo' => $row['sexo'],
             'color' => $row['color'],
             'madurez' => $row['madurez'],
-            'descripcion' => $row['descripcion'],
+            'long_pelaje' => $row['long_pelaje'],
             'fecha_nacimiento' => $row['fecha_nacimiento'],
             'foto' => $row['foto'],
             'fecha_ingreso' => $row['fecha_ingreso'],
             'fecha_salida' => $row['fecha_salida'],
-            'tiempo_adopcion' => $row['tiempo_adopcion'],
+            'tiempo_adopcion' => $row['tiempo_adopcion']
         );
         array_push($resultado, $item);
     }
